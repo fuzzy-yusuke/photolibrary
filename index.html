@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
     <header>
         <h1>My Photos</h1>
@@ -15,9 +17,42 @@
         <div id="img_unit">
             <div class="photo">
                 <img src="img/img01.jpg">
-                <div class="inner"><p>コメント１<span>nickname</span></p>
+                <div class="inner">
+                    <p>コメント１<span>nickname</span></p>
+                </div>
             </div>
         </div>
-    </div>
+
+        <script>
+            var images = [
+                {
+                    "path": "img/img01.jpg",
+                    "name": "name01",
+                    "caption": "コメント１"
+                }
+            ];
+
+            var img;
+            var caption;
+            var div;
+
+            for (var i = 0; i < images.length; i++) {
+                img = document.createElement('img');
+                img.setAttribute('src', images[i].path); //src属性に対して、imagesのパスを設定
+
+                caption = document.createElement('div'); //divタグを生成
+                caption.className = 'inner';
+                caption.innerHTML = '<p>' + images[i].caption + '<span>' + images[i].name + '</span></p>';
+
+
+                div = document.createElement('div');
+                div.className = 'photo';
+                div.appendChild(img);
+                div.appendChild(cation);
+                document.getElementById('img_unit').appendChild(div); //要素のオブジェクトを直接指定 
+            }
+            alert(images[i].path) //windowオブジェクトは省略
+        </script>
 </body>
+
 </html>
