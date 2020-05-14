@@ -32,3 +32,25 @@ header h1 {
     text-align: center;
     font-family: 'Open Sans Condensed', sans-serif;
 }
+
+.photo {
+    position: relative; /*コメント部分の配置を設定する為、<div photo>を親要素にする*/
+}
+
+.photo .inner{
+    position: absolute; /*要素の位置を確定させるプロパティ*/
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .5);
+    font-size: 10px;
+    color: #fff;
+    margin: 0;
+    width: 100%;
+}
+
+.inner p {
+    padding: 20px;
+}
+
+.inner span {
+    margin-left: 10px;
+}
