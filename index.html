@@ -15,29 +15,28 @@
     </header>
     <div class="container">
         <div id="img_unit">
-                </div>
-            </div>
         </div>
+    </div>
     
         <script>
-            var ajax=new XMLHttpRequest();                                              //Ajax通信を行う為のオブジェクトを作成
+            let ajax=new XMLHttpRequest();                                              //Ajax通信を行う為のオブジェクトを作成
             ajax.open('GET','https://h2o-space.com/htmlbook/images.php');               //Ajax通信を行う為のサーバーを指定
             ajax.responseType='json';                                                   //受信するデータのタイプを指定
             ajax.send(null);                                                            //呼び出したファイルに対するリクエスト（今回は無し）
         
             ajax.onreadystatechange=function(){                                         //Ajax通信の状態を表示させる
                 if (ajax.readyState === XMLHttpRequest.DONE && ajax.status === 200){    //データ通信が正常に完了した場合の処理
-                    for (var i=0;i<this.response.length;i++){
-                        var data=this.response[i];
+                    for (let i=0;i<this.response.length;i++){
+                        let data=this.response[i];
 
-                        var img=document.createElement('img');
+                        let img=document.createElement('img');
                         img.setAttribute('src',data.path);                              //src属性に対して、data(Ajax通信で受け取ったデータ)のパスを設定
 
-                        var caption=document.createElement('div');                      //divタグを生成
+                        let caption=document.createElement('div');                      //divタグを生成
                         caption.className='inner';
                         caption.innerHTML='<p>'+data.caption+'<span>'+data.name+'</span></p>';
 
-                        var div=document.createElement('div');
+                        let div=document.createElement('div');
                         div.className='photo';
                         div.appendChild(img);
                         div.appendChild(caption);
