@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyPhotos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header>
+        <h1>My Photos</h1>
+    </header>
+    <div class="container">
+        <div id="img_unit">
+        </div>
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        //jQueryファイルを読み込む
+        $.getJSON('https://h2o-space.com/htmlbook/images.php',function(data){
+            for(var i=0;i<data.length;i++){
+                $('<div class="photo"></div>')                 //まだ存在していないタグを新たに生成
+                    .append('<img src="'+ data[i].path +'">')  //生成したタグに入れる値を追加（フォルダ内の画像ファイルのパスを追加した）
+                    .append('<div class="inner"><p>'+ data[i].caption +'<span>' + data[i].name +'</span></p></div>')  //画像ファイルのキャプションとファイル名を読み込む
+                    .appendTo('#img_unit');                    //上記で指定・追加したデータを含ませる要素を指定
+            }
+        })
+    </script>
+
+</body>
+
+</html>
